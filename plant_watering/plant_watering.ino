@@ -22,8 +22,6 @@ void getLocalTime() {
     return;
   }
   Serial.println(&timeinfo, "%A, %B %d %Y %H:%M:%S");
-  hour = timeinfo.tm_hour;
-  minute = timeinfo.tm_min;
 }
 
 // Callback function (gets called when time adjusts via NTP)
@@ -81,8 +79,8 @@ void loop() {
 }
 
 void water_on(){
-  Serial.println("Watering for 35 seconds");
+  Serial.println("Watering for 20 seconds");
   digitalWrite(RELAY_ENABLE,LOW);
-  delay(35 * 1000);
+  delay(20 * 1000);
   digitalWrite(RELAY_ENABLE,HIGH);
 }
