@@ -35,7 +35,7 @@ void timeavailable(struct timeval *t) {
 void setup() {
   Serial.begin(115200);
   pinMode(RELAY_ENABLE, OUTPUT);
-  digitalWrite(RELAY_ENABLE,LOW);
+  digitalWrite(RELAY_ENABLE,HIGH);
   
   // First step is to configure WiFi STA and connect in order to get the current time and date.
   Serial.printf("Connecting to %s ", ssid);
@@ -82,7 +82,7 @@ void loop() {
 
 void water_on(){
   Serial.println("Watering for 35 seconds");
-  digitalWrite(RELAY_ENABLE,HIGH);
-  delay(35 * 1000);
   digitalWrite(RELAY_ENABLE,LOW);
+  delay(35 * 1000);
+  digitalWrite(RELAY_ENABLE,HIGH);
 }
